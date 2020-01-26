@@ -1165,6 +1165,9 @@ g_eli_taste(struct g_class *mp, struct g_provider *pp, int flags __unused)
 	if (root_mounted() || g_eli_tries == 0)
 		return (NULL);
 
+	if (strncmp(pp->name, "gpt/", 4) != 0)
+		return (NULL);
+
 	G_ELI_DEBUG(3, "Tasting %s.", pp->name);
 
 	error = g_eli_read_metadata(mp, pp, &md);
