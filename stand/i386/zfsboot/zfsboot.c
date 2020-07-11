@@ -687,6 +687,8 @@ probe_drive(struct zfsdsk *zdsk)
 			    zdsk = copy_dsk(zdsk);
 			}
 			break;
+		    } else {
+			zdsk->gdev = NULL;
 		    }
 		}
 #endif /* LOADER_GELI_SUPPORT */
